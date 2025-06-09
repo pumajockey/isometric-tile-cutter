@@ -170,9 +170,8 @@ def process_image(path: 'Path', tile_width: int):
     output_dir.mkdir()
     print("Outputting to {0}".format(output_dir))
 
-    tile_index = 1
-    for isotile in tiled_image:
-        output_path = output_dir / '{0}_{1}.png'.format(path.stem, tile_index)
+    for tile_index, isotile in enumerate(tiled_image):
+        output_path = output_dir / '{0}.png'.format(tile_index)
         isotile.save(str(output_path))
         tile_index += 1
 
